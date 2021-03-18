@@ -1,0 +1,14 @@
+import tensorflow as tf
+from tensorflow import keras
+
+def linera(keras.layers.Layer):
+  def __init__(self, unit):
+    super(linear, self).__init__()
+    self.unit= unit
+    
+  def build(self, input_shape):
+    self.w= self.add_weight( shape=(input_shape[-1]), initializer= 'random_normal', trainable= True)
+    self.b= self.add_weight( shape=(self.unit,), initializer= 'random_normal', trainable= True)
+    
+  def call(self, inuputs):
+    return tf.matmul(inputs, self.w) + self.b
